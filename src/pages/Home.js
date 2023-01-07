@@ -3,7 +3,7 @@ import Nav from '../components/Nav'
 
 const Home = () => {
 
-  console.log("Home");
+  console.log("Home1");
   
   return (
     <div className=''>
