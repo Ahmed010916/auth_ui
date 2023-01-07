@@ -1,23 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const authSlice = createSlice({
-  name: 'counter',
+const authSlice = createSlice({
+  name: 'auth',
   initialState: {
-    value: 0,
+    user: '',
+    loggedin: false,
+    loading: false,
   },
   reducers: {
-    increment: (state) => {
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
-    },
+    isloggedin: (state)=>{
+      state.loggedin = true
+    }
   },
 })
 
-export const { increment, decrement, incrementByAmount } = authSlice.actions
+export const { isloggedin } = authSlice.actions
 
 export default authSlice.reducer

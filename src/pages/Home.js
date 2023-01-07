@@ -1,10 +1,12 @@
 import React from 'react'
 import Nav from '../components/Nav'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
 
-  console.log("Home1");
-  
+  const {loggedin} = useSelector(state=>state.auth)
+  console.log(loggedin);
+
   return (
     <div className=''>
       <Nav />
