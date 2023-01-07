@@ -3,6 +3,8 @@ import Nav from '../components/Nav'
 
 const Home = () => {
 
+  console.log("Home");
+  
   return (
     <div className=''>
       <Nav />
