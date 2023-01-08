@@ -1,17 +1,11 @@
-import React from 'react'
-import Nav from '../components/Nav'
-import { useSelector } from 'react-redux'
+import Nav from "../components/Nav";
 
 const Home = () => {
-
-  const {loggedin} = useSelector(state=>state.auth)
-  console.log(loggedin);
-
   return (
-    <div className=''>
+    <div className="">
       <Nav />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
