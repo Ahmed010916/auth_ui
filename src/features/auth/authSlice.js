@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CreateUser } from "./UserActionThunk";
+import { CreateUser, LoginUser } from "./UserActionThunk";
 
 const authSlice = createSlice({
   name: "auth",
@@ -10,22 +10,21 @@ const authSlice = createSlice({
   },
   reducers: {},
   extraReducers: {
-    [CreateUser.pending]: (state) => {
+    [LoginUser.pending]: (state) => {
       state.loading = true;
     },
-    [CreateUser.fulfilled]: (state, { payload }) => {
+    [LoginUser.fulfilled]: (state, { payload }) => {
       state.loading = false;
       state.message = payload.message;
       state.loggedin = true;
     },
-    [CreateUser.rejected]: (state, { payload }) => {
+    [LoginUser.rejected]: (state, { payload }) => {
       state.loading = false;
       state.message = payload.message;
-      state.loggedin = false;
     },
   },
 });
 
-export const { isloggedin } = authSlice.actions;
+export const {} = authSlice.actions;
 
 export default authSlice.reducer;

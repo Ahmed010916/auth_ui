@@ -1,10 +1,19 @@
-import { Navigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 
 export default function ProdectedRouter({ children }) {
-  if (auth.currentUser === null) {
-    return { children };
-  } else {
-    return <Navigate to="/" />;
-  }
+  // getIdToken("dmS4SRot9NXmljePNdydzkOZj8J2").then((user) => {
+  //   console.log(user);
+  // });
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log(user.uid);
+    } else {
+      console.log("A");
+    }
+  });
+
+  console.log(auth);
+
+  return children;
 }

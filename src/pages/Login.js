@@ -4,7 +4,7 @@ import google from "./../assets/google.svg";
 import facebook from "./../assets/facebook.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { CreateUser } from "./../features/auth/UserActionThunk";
+import { LoginUser } from "./../features/auth/UserActionThunk";
 
 const Login = () => {
   const { message, loading, loggedin } = useSelector((state) => state.auth);
@@ -13,10 +13,10 @@ const Login = () => {
   const email = useRef();
   const password = useRef();
 
-  const CreateNewUser = (event) => {
+  const LoginUserHandle = (event) => {
     event.preventDefault();
     dispatch(
-      CreateUser({
+      LoginUser({
         email: email.current.value,
         password: password.current.value,
       })
@@ -24,8 +24,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    console.log(loggedin);
-    if (loggedin) {
+    if (loggedin === true) {
       return navigate("/");
     }
   }, [loggedin]);
@@ -50,7 +49,7 @@ const Login = () => {
         <p className="text-md mt-2">Or</p>
         <p className="text-red-600">{message}</p>
         <div className="">
-          <form onSubmit={CreateNewUser} className="flex flex-col">
+          <form onSubmit={LoginUserHandle} className="flex flex-col">
             <label className="mb-1 text-gray-800">Email</label>
             <input
               ref={email}
