@@ -1,30 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CreateUser, LoginUser } from "./UserActionThunk";
 
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    loggedin: false,
-    message: "",
-    loading: false,
+    count: "",
   },
-  reducers: {},
-  extraReducers: {
-    [LoginUser.pending]: (state) => {
-      state.loading = true;
-    },
-    [LoginUser.fulfilled]: (state, { payload }) => {
-      state.loading = false;
-      state.message = payload.message;
-      state.loggedin = true;
-    },
-    [LoginUser.rejected]: (state, { payload }) => {
-      state.loading = false;
-      state.message = payload.message;
+  reducers: {
+    count: (state) => {
+      state.count++;
     },
   },
 });
 
-export const {} = authSlice.actions;
+export const { count } = authSlice.actions;
 
 export default authSlice.reducer;

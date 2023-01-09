@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase";
 
 const Nav = () => {
   return (
@@ -13,7 +12,7 @@ const Nav = () => {
           Home
         </Link>
         <div className="flex gap-3">
-          {auth.currentUser === null ? (
+          {true ? (
             <div className="flex gap-5">
               <Link
                 to="/login"
@@ -30,7 +29,7 @@ const Nav = () => {
             </div>
           ) : (
             <div className="flex gap-5">
-              <p>Hi : {auth.currentUser.email}</p>
+              <p>Hi : Ahmed@gmail.com</p>
               <Link
                 to="/logout"
                 className="text-lg font-medium transition-colors hover:text-purple-500"
